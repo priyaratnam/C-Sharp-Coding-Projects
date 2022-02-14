@@ -6,8 +6,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -119,35 +118,46 @@
                         var value = parseInt($('#Quote').val()) + 25;
                         $('#Quote').val(value);
                     }
+
                     if (parseInt($(this).val()) > 2015) {
                         var value = parseInt($('#Quote').val()) + 25;
                         $('#Quote').val(value);
                     }
+
                     orgValue = value;
                 });
+
                 $('#CarMake').blur(function () {
                     if ($(this).val() == "Porsche") {
                         var value = parseInt($('#Quote').val()) + 25;
                         $('#Quote').val(value);
+
                         orgValue = value;
                     }
+
                     if ($(this).val() == "Porsche" && $('#CarModel').val() == "911 Carrera") {
                         var value = parseInt($('#Quote').val()) + 25;
                         $('#Quote').val(value);
+
                         orgValue = value;
                     }
                 });
+
                 $('#CarModel').blur(function () {
+
                     if ($(this).val() == "911 Carrera" && $('#CarMake').val() == "Porsche") {
                         var value = parseInt($('#Quote').val()) + 25;
                         $('#Quote').val(value);
+
                         orgValue = value;
                     }
                 });
+
                 $('#SpeedingTickets').blur(function () {
                     if (parseInt($(this).val()) != 0) {
                         var value = parseInt($('#Quote').val()) +(10 * parseInt($(this).val()));
                         $('#Quote').val(value);
+
                         orgValue = value;
                     }
                 });
@@ -156,13 +166,16 @@
                         var value = orgValue + orgValue / 2;
                         prevValue = orgValue;
                         $('#Quote').val(value);
+
                         orgValue = value;
                     }
                     else if ($(this).prop('checked', false)) {
                         $('#Quote').val(prevValue);
+
                         orgValue = prevValue;
                     }
                 });
+
                 $('#DUI').click(function () {
                     if ($(this).prop('checked')) {
                         var value = orgValue + orgValue / 4;

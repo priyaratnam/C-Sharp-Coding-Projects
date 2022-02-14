@@ -1,4 +1,4 @@
-﻿@model Car_Insurance.Models.Insuree
+﻿@model CarInsurance.Models.Insuree
 
 @{
     ViewBag.Title = "Delete";
@@ -11,84 +11,83 @@
     <legend>Insuree</legend>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.FirstName)
+         @Html.DisplayNameFor(model => model.FirstName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.FirstName)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.LastName)
+         @Html.DisplayNameFor(model => model.LastName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.LastName)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.EmailAddress)
+         @Html.DisplayNameFor(model => model.EmailAddress)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.EmailAddress)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.DateOfBirth)
+         @Html.DisplayNameFor(model => model.DateOfBirth)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.DateOfBirth)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.CarYear)
+         @Html.DisplayNameFor(model => model.CarYear)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CarYear)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.CarMake)
+         @Html.DisplayNameFor(model => model.CarMake)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CarMake)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.CarModel)
+         @Html.DisplayNameFor(model => model.CarModel)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CarModel)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.DUI)
+         @Html.DisplayNameFor(model => model.DUI)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.DUI)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.SpeedingTickets)
+         @Html.DisplayNameFor(model => model.SpeedingTickets)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.SpeedingTickets)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.CoverageType)
+         @Html.DisplayNameFor(model => model.CoverageType)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CoverageType)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Quote)
+         @Html.DisplayNameFor(model => model.Quote)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Quote)
     </div>
 </fieldset>
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
         <input type="submit" value="Delete" /> |
