@@ -210,6 +210,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Insuree\Create.cshtml" />
+    <Content Include="Views\Insuree\Delete.cshtml" />
+    <Content Include="Views\Insuree\Details.cshtml" />
+    <Content Include="Views\Insuree\Edit.cshtml" />
+    <Content Include="Views\Insuree\index.cshtml" />
+    <Content Include="Views\Insuree\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

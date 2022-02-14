@@ -1,0 +1,97 @@
+﻿@model Car_Insurance.Models.Insuree
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Insuree</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.EmailAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmailAddress)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.DateOfBirth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CarYear)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CarYear)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CarMake)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CarMake)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CarModel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CarModel)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.DUI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DUI)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SpeedingTickets)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SpeedingTickets)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CoverageType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CoverageType)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Quote)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quote)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

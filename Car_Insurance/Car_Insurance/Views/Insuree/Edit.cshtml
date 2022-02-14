@@ -1,0 +1,190 @@
+﻿@model CarInsurance.Models.Insuree
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Insuree</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateOfBirth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfBirth)
+            @Html.ValidationMessageFor(model => model.DateOfBirth)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarYear)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarYear)
+            @Html.ValidationMessageFor(model => model.CarYear)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarMake)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarMake)
+            @Html.ValidationMessageFor(model => model.CarMake)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarModel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarModel)
+            @Html.ValidationMessageFor(model => model.CarModel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DUI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DUI)
+            @Html.ValidationMessageFor(model => model.DUI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SpeedingTickets)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SpeedingTickets)
+            @Html.ValidationMessageFor(model => model.SpeedingTickets)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CoverageType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CoverageType)
+            @Html.ValidationMessageFor(model => model.CoverageType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quote)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quote)
+            @Html.ValidationMessageFor(model => model.Quote)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+
+        @Scripts.Render("~/Scripts/jquery-1.8.2.js")
+        <script>
+            var orgValue = parseFloat($('#Quote').val());
+            var prevValue = 0;
+            $(function () {
+                $('#Quote').attr("readonly", "readonly");
+                $('#CarYear').blur(function () {
+                    if (parseInt($(this).val()) < 2000) {
+                        var value = parseInt($('#Quote').val()) + 25;
+                        $('#Quote').val(value);
+                    }
+                    if (parseInt($(this).val()) > 2015) {
+                        var value = parseInt($('#Quote').val()) + 25;
+                        $('#Quote').val(value);
+                    }
+                    orgValue = value;
+                });
+                $('#CarMake').blur(function () {
+                    if ($(this).val() == "Porsche") {
+                        var value = parseInt($('#Quote').val()) + 25;
+                        $('#Quote').val(value);
+                        orgValue = value;
+                    }
+                    if ($(this).val() == "Porsche" && $('#CarModel').val() == "911 Carrera") {
+                        var value = parseInt($('#Quote').val()) + 25;
+                        $('#Quote').val(value);
+                        orgValue = value;
+                    }
+                });
+                $('#CarModel').blur(function () {
+                    if ($(this).val() == "911 Carrera" && $('#CarMake').val() == "Porsche") {
+                        var value = parseInt($('#Quote').val()) + 25;
+                        $('#Quote').val(value);
+                        orgValue = value;
+                    }
+                });
+                $('#SpeedingTickets').blur(function () {
+                    if (parseInt($(this).val()) != 0) {
+                        var value = parseInt($('#Quote').val()) +(10 * parseInt($(this).val()));
+                        $('#Quote').val(value);
+                        orgValue = value;
+                    }
+                });
+                $('#CoverageType').click(function () {
+                    if ($(this).prop('checked')) {
+                        var value = orgValue + orgValue / 2;
+                        prevValue = orgValue;
+                        $('#Quote').val(value);
+                        orgValue = value;
+                    }
+                    else if ($(this).prop('checked', false)) {
+                        $('#Quote').val(prevValue);
+                        orgValue = prevValue;
+                    }
+                });
+                $('#DUI').click(function () {
+                    if ($(this).prop('checked')) {
+                        var value = orgValue + orgValue / 4;
+                        $('#Quote').val(value);
+                        prevValue = orgValue;
+                        orgValue = value;
+                    }
+                    else if ($(this).prop('checked', false)) {
+                        $('#Quote').val(prevValue);
+                        orgValue = prevValue;
+                    }
+                });
+            });
+        </script>
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
