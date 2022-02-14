@@ -8,8 +8,8 @@ You can look at my profile and these are some small projects using C# and .NET F
 
 PROJECT:
 
-•CAR INSURANCE 
-•
+• CAR INSURANCE 
+• BlackJack Game
 
 CAR Insurance
 
